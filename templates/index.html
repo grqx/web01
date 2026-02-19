@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HOME PAGE</title>
+  <style>
+    body {
+        background-color: #e2e6d7;
+    }
+    #container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        align-items: stretch;
+    }
+    .item {
+        border: 1px solid black;
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    .item img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+  </style>
+</head>
+<body>
+    <div id="container">
+        {% for bike in bikes %}
+        <div class="item">
+            <img src="/static/bike/{{bike[0]}}.jpg">
+            <p>Bike Name: {{bike[2]}} (Maker {{bike[1]}})</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
