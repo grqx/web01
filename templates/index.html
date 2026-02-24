@@ -6,33 +6,72 @@
   <style>
     body {
         background-color: #e2e6d7;
+        overflow: hidden;
     }
+
     #container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
+        gap: 15px;
         align-items: stretch;
     }
+
+    .item-layout {
+        display: flex;
+        flex-direction: column;
+    }
+
     .item {
         border: 1px solid black;
         aspect-ratio: 1;
-        display: flex;
-        flex-direction: column;
         text-align: center;
-        align-items: center;
     }
-    .item img {
-        object-fit: contain;
+    .item p {
+        margin-top: auto;
+    }
+
+    #navbar {
+        margin: 0;
         width: 100%;
-        height: 100%;
+    }
+
+    #navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+
+    #navbar ul li {
+      float: left;
+    }
+
+    #navbar ul li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    #navbar ul li a:hover {
+      background-color: #111111;
     }
   </style>
 </head>
 <body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="about:blank">support us</a></li>
+        </ul>
+    </nav>
     <div id="container">
         {% for bike in bikes %}
-        <div class="item">
-            <img src="/static/bike/{{bike[0]}}.jpg">
+        <div class="item item-layout">
+            <a class="item-layout" href="/bike/{{bike[0]}}">
+                <img src="/static/bike/{{bike[0]}}.jpg">
+            </a>
             <p>Bike Name: {{bike[2]}} (Maker {{bike[1]}})</p>
         </div>
         {% endfor %}
