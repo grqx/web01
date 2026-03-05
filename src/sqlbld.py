@@ -1,4 +1,5 @@
 """sqlite3 SQL builder"""
+from __future__ import annotations
 
 import abc
 import typing
