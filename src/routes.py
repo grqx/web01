@@ -33,13 +33,11 @@ def _login():
     if request.method == 'POST':
         k = request.form.get('k')
         if not k:
-            return Response(
-                'Expected "k" in form', status=400,
-            )
+            return render_template(
+                'error.html', err='Expected "k" in form'), 400
         if not bcrypt.checkpw(k.encode(), ADMIN_PASSWD):
-            return Response(
-                'Password incorrect', status=403,
-            )
+            return render_template(
+                'error.html', err='Password incorrect'), 403
         session['l'] = True
         return redirect('/admin')
 
@@ -49,7 +47,9 @@ def _login():
 
 @app.route('/admin')
 def _admin():
-    return 'Hello, admin!'
+    if session.get('l') is not True:
+        return redirect('/login')
+    return render_template('admin.html')
 
 
 __all__ = []
