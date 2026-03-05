@@ -2,27 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Bike PAGE</title>
+  <title>{{bike[2]}} - Bike detail page</title>
+  <link href="/static/index.css" rel="stylesheet">
   <style>
     body {
-        background-color: #e2e6d7;
-        /*overflow: scroll;*/
-    }
-    .item {
         margin: auto 25vw;
         height: 100%;
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
-    .item p {
-        margin-top: auto;
     }
   </style>
 </head>
 <body>
-    <div class="item" id="container">
+    <nav id="navbar">
+        <ul>
+            <li><a href="/login">Log in</a></li>
+        </ul>
+    </nav>
+    <div class="box column-flex bottom-align-p-tag" id="container">
         <img src="/static/bike/{{bike[0]}}.jpg">
         <p>
         Bike Name: <b><i>{{bike[2]}}</i></b> <br>

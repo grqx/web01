@@ -2,77 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>HOME PAGE</title>
+  <title>Home Page</title>
+  <link href="/static/index.css" rel="stylesheet">
   <style>
-    body {
-        background-color: #e2e6d7;
-        overflow: hidden;
-    }
-
     #container {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 15px;
         align-items: stretch;
     }
-
-    .item-layout {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .item {
-        border: 1px solid black;
-        aspect-ratio: 1;
-        text-align: center;
-    }
-    .item p {
-        margin-top: auto;
-    }
-
-    #navbar {
-        margin: 0;
-        width: 100%;
-    }
-
-    #navbar ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background-color: #333333;
-    }
-
-    #navbar ul li {
-      float: left;
-    }
-
-    #navbar ul li a {
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    #navbar ul li a:hover {
-      background-color: #111111;
-    }
   </style>
 </head>
 <body>
     <nav id="navbar">
         <ul>
-            <li><a href="about:blank">support us</a></li>
+            <li><a href="/login">Log in</a></li>
         </ul>
     </nav>
     <div id="container">
         {% for bike in bikes %}
-        <div class="item item-layout">
-            <a class="item-layout" href="/bike/{{bike[0]}}">
+        <div class="box column-flex bottom-align-p-tag">
+            <a class="column-flex" href="/bike/{{bike[0]}}">
                 <img src="/static/bike/{{bike[0]}}.jpg">
             </a>
-            <p>Bike Name: {{bike[2]}} (Maker {{bike[1]}})</p>
+            <p>Bike Name: {{bike[2]}}</p>
         </div>
         {% endfor %}
     </div>
